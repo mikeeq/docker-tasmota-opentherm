@@ -9,8 +9,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
-      - name: "AgentInfo"
-        run: ./.github/agent-info.sh
       - name: "YamlLint"
         run: |
           docker run \
