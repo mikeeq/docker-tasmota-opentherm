@@ -24,7 +24,7 @@ git clone --depth 1 --branch "${TASMOTA_GIT_BRANCH_NAME}" "${TASMOTA_GIT_URL}"
 
 # https://tasmota.github.io/docs/OpenTherm/
 echo >&2 "===]> Info: Add OpenTherm support to user_config_override.h"
-sed -i '/^#endif..\/\/._USER_CONFIG_OVERRIDE_H_/i #ifndef USE_OPENTHERM\n#define USE_OPENTHERM\n#endif\n' user_config_override.h
+cp -rfv ../user_config_override.h ./user_config_override.h
 
 echo >&2 "===]> Info: docker pull blakadder/docker-tasmota"
 docker pull blakadder/docker-tasmota
