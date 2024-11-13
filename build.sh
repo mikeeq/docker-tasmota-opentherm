@@ -28,11 +28,15 @@ cp -rfv ../user_config_override.h ./user_config_override.h
 
 echo >&2 "===]> Info: docker pull blakadder/docker-tasmota"
 docker pull blakadder/docker-tasmota
+cd ..
 
 echo >&2 "===]> Info: Compile.sh"
 # commenting out all git commands, as tasmota is cloned beforehand in this script
+cd docker-tasmota
 sed -i 's/^\s*git/#&/' compile.sh
 ./compile.sh
+# To compile specific version of Tasmota, just provide a name from builds listed in platformio.ini, i.e.: tasmota-PT
+# ./compile.sh tasmota
 
 echo >&2 "===]> Info: Copy artifacts"
 cd "$SCRIPT_PATH"
